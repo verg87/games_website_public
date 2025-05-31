@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Chess{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'css/chess.css' %}">
+    {% csrf_token %}
+
+    <div class="board" id="board">
+        <div class="row" id="8">
+            <div class="white-cell" data-cell="a8" id="a8">
+                <div class="notation numeric">8</div>
+                <img class="piece" data-id="BR" src="{% static 'img/chess_pieces/bR.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="b8" id="b8">
+                <img class="piece" data-id="BH" src="{% static 'img/chess_pieces/bN.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="c8" id="c8">
+                <img class="piece" data-id="BB" src="{% static 'img/chess_pieces/bB.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="d8" id="d8">
+                <img class="piece" data-id="BQ" src="{% static 'img/chess_pieces/bQ.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="e8" id="e8">
+                <img class="piece" data-id="BK" id="BK" src="{% static 'img/chess_pieces/bK.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="f8" id="f8">
+                <img class="piece" data-id="BB" src="{% static 'img/chess_pieces/bB.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="g8" id="g8">
+                <img class="piece" data-id="BH" src="{% static 'img/chess_pieces/bN.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="h8" id="h8">
+                <img class="piece" data-id="BR" src="{% static 'img/chess_pieces/bR.png' %}" draggable="true">
+            </div>
+        </div>
+        <div class="row" id="7">
+            <div class="black-cell" data-cell="a7" id="a7">
+                <div class="notation numeric">7</div> 
+                <img class="piece" data-id="BP" src="{% static 'img/chess_pieces/bP.png' %}" draggable="true">          
+            </div>
+            <div class="white-cell" data-cell="b7" id="b7">
+                <img class="piece" data-id="BP" src="{% static 'img/chess_pieces/bP.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="c7" id="c7">
+                <img class="piece" data-id="BP" src="{% static 'img/chess_pieces/bP.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="d7" id="d7">
+                <img class="piece" data-id="BP" src="{% static 'img/chess_pieces/bP.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="e7" id="e7">
+                <img class="piece" data-id="BP" src="{% static 'img/chess_pieces/bP.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="f7" id="f7">
+                <img class="piece" data-id="BP" src="{% static 'img/chess_pieces/bP.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="g7" id="g7">
+                <img class="piece" data-id="BP" src="{% static 'img/chess_pieces/bP.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="h7" id="h7">
+                <img class="piece" data-id="BP" src="{% static 'img/chess_pieces/bP.png' %}" draggable="true">
+            </div>
+        </div>
+        <div class="row" id="6">
+            <div class="white-cell" data-cell="a6" id="a6">
+                <div class="notation numeric">6</div>
+            </div>
+            <div class="black-cell" data-cell="b6" id="b6"></div>
+            <div class="white-cell" data-cell="c6" id="c6"></div>
+            <div class="black-cell" data-cell="d6" id="d6"></div>
+            <div class="white-cell" data-cell="e6" id="e6"></div>
+            <div class="black-cell" data-cell="f6" id="f6"></div>
+            <div class="white-cell" data-cell="g6" id="g6"></div>
+            <div class="black-cell" data-cell="h6" id="h6"></div>
+        </div>
+        <div class="row" id="5">
+            <div class="black-cell" data-cell="a5" id="a5">
+                <div class="notation numeric">5</div>
+            </div>
+            <div class="white-cell" data-cell="b5" id="b5"></div>
+            <div class="black-cell" data-cell="c5" id="c5"></div>
+            <div class="white-cell" data-cell="d5" id="d5"></div>
+            <div class="black-cell" data-cell="e5" id="e5"></div>
+            <div class="white-cell" data-cell="f5" id="f5"></div>
+            <div class="black-cell" data-cell="g5" id="g5"></div>
+            <div class="white-cell" data-cell="h5" id="h5"></div>
+        </div>
+        <div class="row" id="4">
+            <div class="white-cell" data-cell="a4" id="a4">
+                <div class="notation numeric">4</div>
+            </div>
+            <div class="black-cell" data-cell="b4" id="b4"></div>
+            <div class="white-cell" data-cell="c4" id="c4"></div>
+            <div class="black-cell" data-cell="d4" id="d4"></div>
+            <div class="white-cell" data-cell="e4" id="e4"></div>
+            <div class="black-cell" data-cell="f4" id="f4"></div>
+            <div class="white-cell" data-cell="g4" id="g4"></div>
+            <div class="black-cell" data-cell="h4" id="h4"></div>
+        </div>
+        <div class="row" id="3">
+            <div class="black-cell" data-cell="a3" id="a3">
+                <div class="notation numeric">3</div>
+            </div>
+            <div class="white-cell" data-cell="b3" id="b3"></div>
+            <div class="black-cell" data-cell="c3" id="c3"></div>
+            <div class="white-cell" data-cell="d3" id="d3"></div>
+            <div class="black-cell" data-cell="e3" id="e3"></div>
+            <div class="white-cell" data-cell="f3" id="f3"></div>
+            <div class="black-cell" data-cell="g3" id="g3"></div>
+            <div class="white-cell" data-cell="h3" id="h3"></div>
+        </div>
+        <div class="row" id="2">
+            <div class="white-cell" data-cell="a2" id="a2">
+                <div class="notation numeric">2</div>
+                <img class="piece" data-id="WP" src="{% static 'img/chess_pieces/WP.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="b2" id="b2">
+                <img class="piece" data-id="WP" src="{% static 'img/chess_pieces/WP.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="c2" id="c2">
+                <img class="piece" data-id="WP" src="{% static 'img/chess_pieces/WP.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="d2" id="d2">
+                <img class="piece" data-id="WP" src="{% static 'img/chess_pieces/WP.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="e2" id="e2">
+                <img class="piece" data-id="WP" src="{% static 'img/chess_pieces/WP.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="f2" id="f2">
+                <img class="piece" data-id="WP" src="{% static 'img/chess_pieces/WP.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="g2" id="g2">
+                <img class="piece" data-id="WP" src="{% static 'img/chess_pieces/WP.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="h2" id="h2">
+                <img class="piece" data-id="WP" src="{% static 'img/chess_pieces/WP.png' %}" draggable="true">
+            </div>
+        </div>
+        <div class="row" id="1">
+            <div class="black-cell" data-cell="a1" id="a1">
+                <div class="notation alpha">a</div>
+                <div class="notation numeric">1</div>
+                <img class="piece" data-id="WR" src="{% static 'img/chess_pieces/wR.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="b1" id="b1">
+                <div class="notation alpha">b</div>
+                <img class="piece" data-id="WH" src="{% static 'img/chess_pieces/wN.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="c1" id="c1">
+                <div class="notation alpha">c</div>
+                <img class="piece" data-id="WB" src="{% static 'img/chess_pieces/wB.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="d1" id="d1">
+                <div class="notation alpha">d</div>
+                <img class="piece" data-id="WQ" src="{% static 'img/chess_pieces/wQ.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="e1" id="e1">
+                <div class="notation alpha">e</div>
+                <img class="piece" data-id="WK" id="WK" src="{% static 'img/chess_pieces/wK.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="f1" id="f1">
+                <div class="notation alpha">f</div>
+                <img class="piece" data-id="WB" src="{% static 'img/chess_pieces/wB.png' %}" draggable="true">
+            </div>
+            <div class="black-cell" data-cell="g1" id="g1">
+                <div class="notation alpha">g</div>
+                <img class="piece" data-id="WH" src="{% static 'img/chess_pieces/wN.png' %}" draggable="true">
+            </div>
+            <div class="white-cell" data-cell="h1" id="h1">
+                <div class="notation alpha">h</div>
+                <img class="piece" data-id="WR" src="{% static 'img/chess_pieces/wR.png' %}" draggable="true">
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const pieceImages = {
+            'WP': '{% static "img/chess_pieces/wP.png" %}',
+            'WR': '{% static "img/chess_pieces/wR.png" %}',
+            'WH': '{% static "img/chess_pieces/wN.png" %}',
+            'WB': '{% static "img/chess_pieces/wB.png" %}',
+            'WQ': '{% static "img/chess_pieces/wQ.png" %}',
+            'WK': '{% static "img/chess_pieces/wK.png" %}',
+
+            'BP': '{% static "img/chess_pieces/bP.png" %}',
+            'BR': '{% static "img/chess_pieces/bR.png" %}',
+            'BH': '{% static "img/chess_pieces/bN.png" %}',
+            'BB': '{% static "img/chess_pieces/bB.png" %}',
+            'BQ': '{% static "img/chess_pieces/bQ.png" %}',
+            'BK': '{% static "img/chess_pieces/bK.png" %}',
+        }
+
+    </script>
+    <script type="module" src="{% static 'javascript/chess_scripts.js' %}"></script>
+
+    <form action="/" method="post">{% csrf_token %}
+        <button type="submit">Homepage</button>
+    </form>
+    <form method="post">{% csrf_token %}
+        <button type="submit" name="reset">Reset board</button>
+    </form>
+{% endblock %}

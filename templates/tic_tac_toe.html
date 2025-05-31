@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Tic Tac Toe{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'css/tic_tac_toe.css' %}">
+    <link rel="stylesheet" href="{% static 'css/guess_number.css' %}">
+
+    <div class="content-main">
+
+        <h1>Tic Tac Toe</h1>
+
+        {% if winner != None and winner != "Stalemate" %}
+            {% include "includes/reset_button-ttt.html" with fr_title_part="Player " winner=winner sd_title_part=" wins" %}
+        {% elif winner == "Stalemate" %}
+            {% include "includes/reset_button-ttt.html" %}
+        {% else %}
+            <p>Current player: {{ current_player }}</p>
+        {% endif %}
+
+        {% if error_message %}
+            {{ error_message }}
+        {% endif %}
+    
+        <form method="post">{% csrf_token %}
+            {% for cell in board %}
+                {% if forloop.counter0 == 2 or forloop.counter0 == 5 %}
+                    {% include "includes/cell.html" with cell=cell cell_taken=winner forloop=forloop %}<br>
+                {% else %}
+                    {% include "includes/cell.html" with cell=cell cell_taken=winner forloop=forloop %}
+                {% endif %}
+            {% endfor %}
+        </form>
+
+        <form action="/" method="post">{% csrf_token %}
+            <button type="submit" >Homepage</button>
+        </form>
+    </div>
+{% endblock %}

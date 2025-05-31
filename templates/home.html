@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1>My website</h1>
+    {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}!</p> 
+        <p>Welcome {{ user.first_name }} {{ user.last_name }}</p>
+        <p>Here's some games in case you're bored 
+            and btw only you, the signed up person can play them </p>
+        <ul>
+            <li><a href="{% url 'tic-tac-toe' %}">Tic tac toe game</a></li>
+            <li><a href="{% url 'comp-guesses-num' %}">Computer can you predict you. Click to see how unpredictable you are</a></li>
+            <li><a href="{% url 'chess' %}">Chess</a></li>
+        </ul>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    {% else %}
+        <p>Please login</p>
+        <p><a href="{% url 'login' %}">Login page</a></p>
+    {% endif %}
+{% endblock %}
+
+{% comment %}
+    I need to add support for user's bad internet connection
+{% endcomment %}

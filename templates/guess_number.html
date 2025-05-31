@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Guess Number{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'css/guess_number.css' %}">
+    <div class="content-main">
+        <h1>This bot can read your mind. Don't believe me? Test it yourself</h1>
+        <form method="post">{% csrf_token %}
+            {% for field in form %}
+                {{ field.label }}<br>{{field}}<br>
+            {% endfor %}
+            <button type="submit">Click to see</button>
+        </form> 
+        {% if bot_guess %}
+            <p>Is it {{ bot_guess }}</p>
+            <p>Accuracy: {{ accuracy }}%</p>
+            <p>Rounds played: {{ rounds }}</p>
+        {% endif %}
+
+        <form method="post">{% csrf_token %}
+            <button type="submit" name="reset_button">Click to reset</button><br>
+            <button type="submit" name="back">Click to go back</button>
+        </form>
+    </div>
+    
+{% endblock %}

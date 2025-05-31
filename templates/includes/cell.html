@@ -1,0 +1,10 @@
+<button 
+    {% if cell_taken  %}
+        class="cell disabled"
+    {% elif not cell_taken %}
+        class="cell"
+    {% endif %}
+    type="submit" 
+    name="cell_index"
+    value="{{ forloop.counter0 }}"
+>{{ cell }}</button>
